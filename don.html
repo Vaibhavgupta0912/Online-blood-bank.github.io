@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Donate now</title>
+	<link rel="shortcut icon" href="img/banner/logo.png">
+	<link rel="stylesheet" href="css/donate.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+<body>
+	<div class="wrapper ">
+		<a class="navbar-brand" href="#home">
+			
+			<h2 class="logo"> Online Blood Bank</h2>
+			<h4 style="color: crimson; text-align: center;">Donate blood in your city</h4> <br>
+
+		</a>
+		<h2>Blood Donation form</h2>
+		<div class="form-conteniar">
+			<form method="POST" name="google-sheet" >
+
+
+				<div class="input-name">
+					<i class="fa fa-user lock"></i>
+					<input type="text" placeholder="Enter Full Name" class="name" id="name" name="Name">
+					
+				</div> 
+					<div class="input-name">
+				
+					<input type="radio" name="radiogroup1" id="vaibhav" class="radio-button" value="m">
+					<label for="vaibhav" class="gender">Male</label>
+					<input type="radio" name="radiogroup1" id="vaibhav1" class="radio-button" value="o">
+					<label for="vaibhav1" class="gender">Female</label>
+				</div>
+				<div class="input-name">
+					<i class="fa  fa-phone"></i>
+					<input type="phone" placeholder="Phone" class="text-name" id="phone" name="Phone">
+				</div>
+				<div class="input-name">
+					<i class="fa fa-envelope email"></i>
+					<input type="email" placeholder="Email" id="email" class="text-name" name="Email">
+				</div>
+				<div class="input-name">
+					<i class="fa fa-lock lock"></i>
+					<input type="password" placeholder="Password" id="password" class="text-name" name="Password">
+				</div>
+				<div class="input-name">
+					<i class="fa fa-lock lock"></i>
+					<input type="password" placeholder="Re-type Password" class="text-name" name="repassword">
+				</div>
+				<div class="input-name">
+				<select class="list1" name="group" id="group">
+					<option> Select a Blood Group</option>
+					<option>A+</option>
+					<option>A-</option>
+					<option>AB+</option>
+					<option>AB-</option>
+					<option>B+</option>
+					<option>B-</option>
+					<option>O+</option>
+					<option>O-</option>
+				 </select>
+				 <div class="arrow"></div>
+				</div>
+				<div class="input-name">
+					<i class="fa fa-address"></i>
+					<input type="text" placeholder="Address" class="text-name" id="address" name="address">
+				</div>
+				<div class="input-name">
+					<i class="fa fa-city"></i>
+					<input type="text" placeholder="City" class="text-name" id="city" name="city">
+				</div>
+				<div class="input-name">
+					<i class="fa fa-address"></i>
+					<input type="checkbox" class="chack-button" id="cb1">
+					<label for="cb1" class="chack"> I agree with terms and conditions.</label>
+				</div>
+				<div class="input-name">
+					<input class="button" type="submit" value="Register" name="submit">
+				</div>
+			
+			
+			</form>
+
+		</div>
+	</div>
+
+	<script>
+		const scriptURL = 'https://script.google.com/macros/s/AKfycbzI88n_nCzZCEh6CPapNsjohPr8SawZ0A3Dd97LO4u3gPIYOxU/exec'
+		const form = document.forms['google-sheet']
+	  
+		form.addEventListener('submit', e => {
+		  e.preventDefault()
+		  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+			.then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+			.catch(error => console.error('Error!', error.message))
+		})
+	  </script>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</body>
+</html>
